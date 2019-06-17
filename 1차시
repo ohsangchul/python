@@ -1,0 +1,206 @@
+OT
+ - 조각,조퇴,외출 3회 = 1일 결석 (기준 21시)
+ - 수료 기준 80% (최대 : 결석4일, 기타 2회)
+
+강사님 공유 폴더 : \\192.168.0.52\061930python
+ - 화면 확대 프로그램 : ZoomIt
+ - 폰트 : D2Coding -> D2Coding 폴더 아래 ttc 파일로 설치
+ - 에디터 : jupyter notebook (https://jupyter.org/)
+
+과정 : Python 과정 -> ML 과정 : Tensorflow + Anaconda(Library 모음) 사용 -> 빅데이터 분석 과정
+ - http://media.fastcampus.co.kr/knowledge/dataanalysis-python-r/ (Python이냐 R이냐...)
+교제 : 점프 투 파이썬 (https://wikidocs.net/book/1)
+
+파이썬 다운로드 : https://www.python.org/downloads/
+ - 파이썬 버전마다 동작이 상이 할 수 있으므로 버전을 명기한 폴더를 생성해서 설치하는 것이 좋다.
+
+
+[실습 내용 : 01_helloPython.py]
+### #은 Python에서 주석 처리 문자로 사용된다.
+
+3+5
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#>>> 
+
+print(3+5)
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#8
+
+### ''와 ""를 구분하지 않는다. 모두 문자열로 처리한다.
+
+print('Hello Python')
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#Hello Python
+
+print("안녕 파이썬")
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#안녕 파이썬
+
+print('Hello', 'Python') # ,로 구분하면 데이터 사이에 공백이 출력된다.
+print('Hello' + 'Python') # +로 구분하면 데이터가 연결되서 출력한다.
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#Hello Python
+#HelloPython
+
+print('Hello ' + 'Python')
+print('Hello' + ' Python')
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#Hello Python
+#Hello Python
+
+print('==========')
+print('=' * 10)
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#==========
+#==========
+
+### *연산자를 이용해서 특정 문자열을 지정 횟수만큼 반복해서 출력 가능하다.
+
+print('AB가나' * 5)
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#AB가나AB가나AB가나AB가나AB가나
+
+### print() 함수로 출력시 줄 변경을 하기 싫으면 end 옵션을 사용한다.
+
+print('Hello')
+print('Python')
+
+print('Hello', end = '')
+print('Python')
+
+print('Hello', end = ',')
+print('Python')
+
+print('Hello', end = '\n')
+print('Python')
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#Hello
+#Python
+
+#HelloPython
+
+#Hello,Python
+
+#Hello
+#Python
+
+### 출력 서식 : 정수(%d), 실수(%f), 문자열(%s)
+### 서식 형식 : %[-][0][n][.m]서식문자
+###             n : 출력할 데이터의 전체 자리수
+###             - : 전체 자리수가 지정된 경우 데이터를 왼쪽에 맞춰 출력한다.
+###             0 : 왼쪽의 남는 자리에 0을 채워 출력한다.
+###            .m : 소수점 아래 표시할 자리수
+
+print('%d' % 100)
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#100
+
+print('%d' % 100)
+print('%d' % 1)
+print('%d' % 10000)
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#100
+#1
+#10000
+
+print('%5d' % 100)
+print('%5d' % 1)
+print('%5d' % 10000)
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#  100
+#    1
+#10000
+
+print('%5d' % 100)
+print('%5d' % 1)
+print('%-5d' % 1)
+print('%5d' % 10000)
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#  100
+#    1
+#1
+#10000
+
+print('%5d' % 100)
+print('%5d' % 1)
+print('%-5d' % 1)
+print('%05d' % 1)
+print('%5d' % 10000)
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#  100
+#    1
+#1    
+#00001
+#10000
+
+print('%s' % 'abc')
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#abc
+
+print('%5s' % 'abc')
+print('%5s' % 'a')
+print('%5s' % 'abcde')
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#  abc
+#    a
+#abcde
+
+print('%5s' % 'abc')
+print('%5s' % 'a')
+print('%-5s' % 'a')
+print('%05s' % 'a') # 파이썬은 문자열 앞의 0은 무시한다.
+print('%5s' % 'abcde')
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#  abc
+#    a
+#a
+#    a
+#abcde
+
+print('%5f' % 12345)
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#12345.000000
+
+print('%.2f' % 123.45) # 전체자리수에 .도 포함된다.
+print('%.2f' % 123.456) # 소수점 아래 3번째 자리에서 반올림한다.
+print('%.2f' % 123.4) # 소수점 아래 2번째 자리에 0을 채워준다.
+print('%.0f' % 0.4)
+print('%.0f' % 0.5)
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#123.45
+#123.46
+#123.40
+
+### 서식을 지정해서 출력할 데이터가 2개 이상일 경우 데이터를 ()로 묶어야 한다.
+
+print('%d + %d = %d' % (5, 3, 8))
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#5 + 3 = 8
+
+### 나눗셈의 몫을 구할때는 //를 사용한다.
+### 나눗셈의 나머지를 구할때는 %를 사용한다.
+
+print('%d + %d = %d' % (5, 3, 5+3))
+print('%d - %d = %d' % (5, 3, 5-3))
+print('%d * %d = %d' % (5, 3, 5*3))
+print('%d / %d = %d' % (5, 3, 5/3))
+print('%d / %d = %.2f' % (5, 3, 5/3))
+print('%d // %d = %.0f' % (5, 3, 5//3))
+print('%d %% %d = %.2f' % (5, 3, 5%3)) # 나눗셈 기호는 서식 형식으로도 사용되기 때문에 %를 출력하기 위해서는 %%로 표기한다.
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#5 + 3 = 8
+#5 - 3 = 2
+#5 * 3 = 15
+#5 / 3 = 1
+#5 / 3 = 1.67
+#5 // 3 = 1
+
+print('%d "+" %d = %d' % (5, 3, 5+3))
+print("%d '+' %d = %d" % (5, 3, 5+3))
+print("%d \"+\" %d = %d" % (5, 3, 5+3))
+print('%d \'+\' %d = %d' % (5, 3, 5+3))
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#5 "+" 3 = 8
+#5 '+' 3 = 8
+#5 "+" 3 = 8
+#5 '+' 3 = 8
