@@ -1,0 +1,164 @@
+[실습 내용 : 01_print.py]
+### format() 함수와 출력 인덱스를 사용해서 출력하기
+print('{} {}'.format('홍길동','활빈당'))
+print('{0} {1}'.format('홍길동','활빈당'))
+print('{1} {0}'.format('홍길동','활빈당'))
+print('{1} {0} {1}'.format('홍길동','활빈당'))
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#홍길동 활빈당
+#홍길동 활빈당
+#활빈당 홍길동
+#활빈당 홍길동 활빈당
+
+### 출력 서식과 출력 인덱스를 모두 지정해서 출력하기
+print('{}님은 {}살 입니다.'.format('홍길동',20))
+print('{0:10s}님은 {1:3d}살 입니다.'.format('홍길동',20)) # {'인덱스:서식'}으로 작성하며, %는 생략한다.
+print('{0:10s}님은 {1:03d}살 입니다.'.format('홍길동',20)) # {'인덱스:서식'}으로 작성하며, %는 생략한다.
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#홍길동님은 20살 입니다.
+#홍길동       님은  20살 입니다.
+#홍길동       님은 020살 입니다.
+
+### 문자열 정렬 하기
+print('{0:<10} 왼쪽 정렬'.format('Hi'))
+print('{0:>10} 오른쪽 정렬'.format('Hi'))
+print('{0:^10} 가운데 정렬'.format('Hi'))
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#Hi         왼쪽 정렬
+#        Hi 오른쪽 정렬
+#    Hi     가운데 정렬
+
+### 공백 채우기 (정렬 문자 앞에 공백을 채울 한개의 문자를 지정 할 수 있다.)
+print('{0:*<10} 왼쪽 정렬'.format('Hi'))
+print('{0:*>10} 오른쪽 정렬'.format('Hi'))
+print('{0:*^10} 가운데 정렬'.format('Hi'))
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#Hi******** 왼쪽 정렬
+#********Hi 오른쪽 정렬
+#****Hi**** 가운데 정렬
+
+### f접두어를 사용한 포멧팅
+name = '홍길동'
+age = 35
+print(f'{name}님은 {age}살 입니다.')
+#================ RESTART: D:/osc/workspace/01_helloPython.py ================
+#홍길동님은 35살 입니다.
+
+
+* 실습 사인트 : http://codingdojang.com/
+
+
+[실습 내용 : 02_input.py]
+### 변수명 작성 방법
+### 영문 대소문자, 숫자, 특수문자(_) 사용 가능
+### 반드시 문자로 시작해야 하며, Python 예약어는 사용할 수 없다.
+### 변수의 자료형을 지정하지 않는다.
+### 변수를 삭제 하려면 del 명령을 사용한다.
+
+name = '홍길동'
+print(type(name))
+age = 35
+print(type(age))
+hight = 180.1
+print(type(hight))
+gender = True # True, False 첫 글자는 대문자로 쓴다.
+print(type(gender))
+none = None
+print(type(none))
+del name # 메모리 해제
+age = '활빈당'
+print(type(age))
+#=================== RESTART: D:/osc/workspace/02_input.py ===================
+#<class 'str'>
+#<class 'int'>
+#<class 'float'>
+#<class 'bool'>
+#<class 'NoneType'>
+#<class 'str'>
+
+print('이름을 입력하세요 : ', end = '')
+name = input()
+print('%s님 안녕하세요.' % name)
+#=================== RESTART: D:/osc/workspace/02_input.py ===================
+#이름을 입력하세요 : 홍길동
+#홍길동님 안녕하세요.
+
+name = input('이름을 입력하세요 : ')
+print('%s님 안녕하세요.' % name)
+#=================== RESTART: D:/osc/workspace/02_input.py ===================
+#이름을 입력하세요 : 홍길동
+#홍길동님 안녕하세요.
+
+### input() 함수는 데이터를 무조건 문자열로 입력받는다.
+### 문자열로 입력받은 데이러틑 숫자로 변환 할 때는 int() 또는 float()를 사용한다.
+name = input('이름을 입력하세요 : ')
+age = int(input('나이를 입력하세요 : '))
+print('%s님은 %d입니다.' % (name, age))
+print('{}님은 {}입니다.'.format(name, age)) # 출력 형식을 지정할 수 없을 경우 출력 인덱스를 사용한다.
+print('{}님은 내년에 {}살입니다.'.format(name, age+1))
+#=================== RESTART: D:/osc/workspace/02_input.py ===================
+#이름을 입력하세요 : 홍길동
+#나이를 입력하세요 : 35
+#홍길동님은 35입니다.
+#홍길동님은 35입니다.
+#홍길동님은 내년에 36살입니다.
+
+### 여러줄 주석시 ''' ~ '''를 사용한다
+
+### split(구분자) : 문자열을 구분자를 경계로 나눈다.
+name, age = input('이름과 나이를 입력하세요 : ').split(' ')
+name, age = input('이름과 나이를 입력하세요 : ').split(',')
+print('{}님은 올해 {}살입니다.'.format(name, age))
+print('{}님은 내년에 {}살입니다.'.format(name, int(age)+1))
+print('{}님은 올해 {}살입니다.'.format(name, float(age)))
+#=================== RESTART: D:/osc/workspace/02_input.py ===================
+#이름과 나이를 입력하세요 : 홍길동 35
+#이름과 나이를 입력하세요 : 홍길동,35
+#홍길동님은 올해 35살입니다.
+#홍길동님은 내년에 36살입니다.
+#홍길동님은 올해 35.0살입니다.
+
+### map() 함수를 사용해서 입력받은 데이터를 일괄적으로 숫자로 변환시킬수 있다.
+### 변수+상수 : 오류
+a, b, c = input('3과목 점수를 입력하세요 : ').split(' ')
+print('총점 : {}'.format(a+b+c))
+a, b, c = map(int, input('3과목 점수를 입력하세요 : ').split(' '))
+print('총점 : {}'.format(a+b+c))
+#=================== RESTART: D:/osc/workspace/02_input.py ===================
+#3과목 점수를 입력하세요 : 10 20 30
+#총점 : 102030
+#3과목 점수를 입력하세요 : 10 20 30
+#총점 : 60
+
+
+[실습 내용 : 03_string.py]
+### ''나 ""로 묶어주면 문자열 데이터로 취급한다.
+memo = '첫번째 메시지'
+memo2 = '두번째\n메모'
+print(memo)
+print(memo2)
+#=================== RESTART: D:/osc/workspace/03_string.py ===================
+#첫번째 메시지
+#두번째
+#메모
+
+### ''나 ""를 3개 사용하면 여러줄을 하나의 문자열로 표현할 수 있다.
+### '''는 여러줄 주석과 혼동이 있을 수 있으므로 """를 사용한다.
+memo = """첫째줄
+둘째줄
+셋째줄"""
+print(memo)
+#=================== RESTART: D:/osc/workspace/03_string.py ===================
+#첫째줄
+#둘째줄
+#셋째줄
+
+string = '동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세~'
+### 인덱싱 : 문자열내 특정 위치의 문자를 얻어온다.
+print('인덱싱 : ' + string[0])
+print('인덱싱(-) : ' + string[-1])
+### 슬라이싱 : 문자열을 잘라낸다.
+### [시작위치:끝위치]로 구간을 지정하면 "시작위치 ~ 끝위치-1" 사이의 문자를 얻어온다.
+print('슬라이싱 : ' + string[0:9])
+print('슬라이싱 : ' + string[:9]) # 시작위치를 생략하면 처음부터
+print('슬라이싱 : ' + string[10:]) # 끝위치를 생략하면 마지막까지
