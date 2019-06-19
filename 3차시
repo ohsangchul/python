@@ -1,0 +1,222 @@
+[실습 내용 : 03_string.py]
+# 문자열 인덱싱을 이용한 문자열 수정
+string = 'Pithon'
+print(string)
+print(string[1])
+# 문자열은 부분 수정을 할 수 없다.
+#string[1] = 'y' # 에러 발생. 
+#=================== RESTART: D:/osc/workspace/03_string.py ===================
+#Pithon
+#i
+print(string[:1])
+print(string[2:])
+string = string[:1] + 'y' + string[2:]
+print(string)
+#=================== RESTART: D:/osc/workspace/03_string.py ===================
+#P
+#thon
+#Python
+
+
+[실습 내용 : 04_stringFunction.py]
+### len() : 인수로 지정된 문자열을 구성하는 문자의 개수를 얻어온다. (공백 포함, 영/한 구분 없이 문자 개수만 센다.)
+string = 'We are the champions, My friends!'
+string2 = '마르고 닳도록 하느님이 보우하사 우리나라 만세~'
+print('En : {}'.format(len(string)))
+print('Ko : {}'.format(len(string2)))
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#En : 33
+#Ko : 26
+
+### count() : 인수로 지정된 문자 또는 문자열이 전체 문자열에서 출연한 횟수를 얻어온다.
+print(string.count('e'))
+print(string.count('We'))
+print(string.count('we')) # 소/대문자를 구분한다.
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#4
+#1
+#0
+
+### find() : 인수로 지정된 문자 또는 문자열이 처음 나오는 위치를 리턴한다.
+string = 'Test data not found. Just do it!'
+print(string.find('d'))
+print(string.find('do'))
+# 찾는 문자나 문자열이 없으면 -1을 리턴한다.
+print(string.find('z'))
+print(string.find('yes'))
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#5
+#26
+#-1
+#-1
+
+### index() : 인수로 지정된 문자 또는 문자열이 처음 나오는 위치를 리턴한다.
+string = 'Test data not found. Just do it!'
+print(string.index('d'))
+print(string.index('do'))
+# 찾는 문자나 문자열이 없으면 에러가 발생된다
+#print(string.index('z')) # 에러 발생.
+#print(string.find('yes')) # 에러 발생.
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#5
+#26
+
+### join() : 문자 또는 문자열을 삽입한다.
+string = 'TestMsg'
+print('/'.join(string))
+print('___'.join(string))
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#T/e/s/t/M/s/g
+#T___e___s___t___M___s___g
+
+### upper() : 영어 문자열을 무조건 대문자로 변환한다.
+### lower() : 영어 문자열을 무조건 소문자로 변환한다.
+string = '이 메시지는 TestMsg 입니다.'
+print(string.upper())
+print(string.lower())
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#이 메시지는 TESTMSG 입니다.
+#이 메시지는 testmsg 입니다.
+
+### lstrip() : 문자열 왼쪽의 불필요한 공백을 제거한다.
+### rstrip() : 문자열 오른쪽의 불필요한 공백을 제거한다.
+### strip() : 문자열 양쪽에 불필요한 공백을 제거한다.
+string = '   Python   ' # 문자열 양쪽에 공백 3개씩 추가
+print(len(string))
+print(len(string.lstrip()))
+print(len(string.rstrip()))
+print(len(string.strip()))
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#12
+#9
+#9
+#6
+
+string = '   We are the champions, My friends!   ' # 문자열 양쪽에 공백 3개씩 추가
+print(len(string))
+print(len(string.lstrip()))
+print(len(string.rstrip()))
+print(len(string.strip()))
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#39
+#36
+#36
+#33
+
+### replace() : 문자 또는 문자열을 치환한다.
+string = '어제 우리는, 오늘 우리는, 내일 우리는 항상 어디를 향해 가고 있는가'
+print(string.replace('우','유'))
+print(string.replace('어제','예전'))
+print(string.replace('우리는','너희는'))
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#어제 유리는, 오늘 유리는, 내일 유리는 항상 어디를 향해 가고 있는가
+#예전 우리는, 오늘 우리는, 내일 우리는 항상 어디를 향해 가고 있는가
+#어제 너희는, 오늘 너희는, 내일 너희는 항상 어디를 향해 가고 있는가
+
+### split() : 문자열을 구분자를 경계로 나눈다. 나눈 결과는 list 타입니다. 기본값으로 공백이 사용된다.
+# 사용예시 : 문자열을 단어 기준으로 파싱 할 때 활용 가능하다.
+string = 'We are the champions, My friends!'
+print(string.split(' '))
+print(type(string.split(' ')))
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#['We', 'are', 'the', 'champions,', 'My', 'friends!']
+#<class 'list'>
+
+# 파이썬에서 공백 처리하는 방법
+# 1. strip()
+print('   test   '.strip()) # 사용문자열 양쪽의 공백을 제거
+print('www.asw.pcom.comp.www'.strip('w.com')) # 지정된 문자를 기준으로 양쪽에서 제거
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#test
+#asw.pcom.comp
+
+# 2. replace()
+# 모든 공백을 제거 하기
+print(' hello World '.replace(' ', '')) # 공백을 치환해서 제거
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#helloWorld
+
+# 3. join()
+# 중복되는 공백문자(연속되는 2개 이상의 공백)를 1개만 나오게 하기
+print(' '.join('hello    World'.split())) # split()으로 문자열을 list로 만들어 join()으로 분리
+#=============== RESTART: D:/osc/workspace/04_stringFunction.py ===============
+#hello World
+
+
+[실습 내용 : 05_list.py]
+### list : 데이터를 []로 감싸주고 각각의 데이터는 ,로 구분한다.
+odd = [1, 3, 5, 7, 9]
+print(odd)
+print(type(odd))
+#==================== RESTART: D:/osc/workspace/05_list.py ====================
+#[1, 3, 5, 7, 9]
+#<class 'list'>
+
+# 여러가지 list 표현
+array = [] # 빈 리스트. 사용할때마다 필요한 만큼 자동으로 확장된다.
+print(array)
+print(type(array))
+# 생성자를 사용해서 빈 리스트를 만들수 있지만 사용 하지 않는다.
+array = list()
+print(array)
+print(type(array))
+#==================== RESTART: D:/osc/workspace/05_list.py ====================
+#[]
+#<class 'list'>
+#[]
+#<class 'list'>
+
+num = [1, 2, 3] # 숫자 list
+string = ['one', 'two', 'three'] # 문자 list
+mix = [1, 2, 3, 'one', 'two', 'three'] # 숫자와 문자가 혼용된 list
+multi = [1, 2, 3, ['one', 'two', 'three']] # 데이터 요소로 list를 가지는 list
+
+# 리스트 인덱싱
+print(num)
+print(num[0])
+print(num[0] + num[2])
+print(num[-1])
+#==================== RESTART: D:/osc/workspace/05_list.py ====================
+#[1, 2, 3]
+#1
+#4
+#3
+
+print(multi[0])
+print(multi[3])
+print(multi[-1])
+print(multi[3][0])
+print(multi[-1][-1])
+#==================== RESTART: D:/osc/workspace/05_list.py ====================
+#1
+#['one', 'two', 'three']
+#['one', 'two', 'three']
+#one
+#three
+
+multi2 = [1, 2, ['a', 'b', ['가', '나']]]
+print(multi2[2])
+print(multi2[2][2])
+print(multi2[2][2][0])
+print(multi2[-1][-1][-1])
+#==================== RESTART: D:/osc/workspace/05_list.py ====================
+#['a', 'b', ['가', '나']]
+#['가', '나']
+#가
+#나
+
+# 리스트 슬라이싱
+num = [1, 2, 3, 4, 5]
+print(num[0:2])
+print(num[:2])
+print(num[2:])
+#==================== RESTART: D:/osc/workspace/05_list.py ====================
+#[1, 2]
+#[1, 2]
+#[3, 4, 5]
+
+print(multi[2:4])
+print(multi[3][1:3])
+#==================== RESTART: D:/osc/workspace/05_list.py ====================
+#[3, ['one', 'two', 'three']]
+#['two', 'three']
