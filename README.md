@@ -11,8 +11,10 @@
  - 에디터 : jupyter notebook (https://jupyter.org/)
 
 3. Python 과정 -> ML & 빅데이터 분석 과정 : Tensorflow + Anaconda(Library 모음) 사용
- - http://media.fastcampus.co.kr/knowledge/dataanalysis-python-r/ (Python이냐 R이냐...)
  - 교제 : 점프 투 파이썬 (https://wikidocs.net/book/1)
-
+ - http://media.fastcampus.co.kr/knowledge/dataanalysis-python-r/ (Python이냐 R이냐...)
+ 
 4. 파이썬 다운로드 : https://www.python.org/downloads/
  - 파이썬 버전마다 동작이 상이 할 수 있으므로 버전을 명기한 폴더를 생성해서 설치하는 것이 좋다.
+
+5. 실습(연습) 사이트 : http://codingdojang.com/
