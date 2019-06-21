@@ -165,7 +165,7 @@ for i in range(0, 45):
           print()
 
 # 6자리 번호를 출력한다.
-print('##### ball pop-up #####')
+print('##### pop-up ball #####')
 print('추첨 번호 : ', end = '')
 for i in range(0, 6):
      t.sleep(1) # sleep() : 인수로 지정된 시간만큼 프로그램을 잠깐 멈춘다. 단위는 '초'이다.
