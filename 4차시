@@ -144,7 +144,7 @@ for i in range(1, 46): # range(start:end) : "시작위치 ~ 끝위치-1"까지 �
      lotto.append(i) # i의 값을 리스트에 삽입
 
 # 공이 잘 들어 갔는지 확인한다.
-print('##### insert check 1 #####')
+print('##### insert ball #####')
 for i in range(0, 45):
      print('%02d ' % lotto[i], end = '') # 리스트의 인덱스 안에 있는 값을 출력
      if (i+1) % 15 == 0:
@@ -158,14 +158,14 @@ for i in range(0, 46):
      lotto[0], lotto[num] = lotto[num], lotto[0]
 
 # 공이 잘 섞였는지 확인한다.
-print('##### random check 2 #####')
+print('##### mix ball #####')
 for i in range(0, 45):
      print('%02d ' % lotto[i], end = '') # 리스트의 인덱스 안에 있는 값을 출력
      if (i+1) % 15 == 0:
           print()
 
 # 6자리 번호를 출력한다.
-print('##### result pop #####')
+print('##### ball pop-up #####')
 print('추첨 번호 : ', end = '')
 for i in range(0, 6):
      t.sleep(1) # sleep() : 인수로 지정된 시간만큼 프로그램을 잠깐 멈춘다. 단위는 '초'이다.
