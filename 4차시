@@ -153,7 +153,7 @@ for i in range(0, 45):
 # 섞는다
 # randrange(start, end) : "시작위치 ~ 끝위치-1" 사이의 무작위 수를 리턴한다. 반복 호출시 중복되는 값이 리턴 될수도 있다.
 # lotto[0]와 lotto[1]~lotto[44] 사이의 값 중에서 핸덤한 위치의 값과 교환한다.
-for i in range(0, 46):
+for i in range(0, 1000): # 많이 섞기 위해 횟수를 크게 한다.
      num = r.randrange(1, 45)
      lotto[0], lotto[num] = lotto[num], lotto[0]
 
