@@ -129,7 +129,7 @@ print(string)
 ### () -> 단항연산자 -> 이항연산자 -> 삼항연산자 -> 대입연산자
 
 
-[실습 내용 : 06_LottoNumber.py]
+[실습 내용 : 06_LottoNumber_list.py]
 # random -> randrange() 함수를 사용하기 위해 모듈을 추가
 import random as r # 이후 코드에서는 random을 r로 표기 하겠다.
 # time -> sleep() 함수를 사용하기 위해 모듈을 추가
