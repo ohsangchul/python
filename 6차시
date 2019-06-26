@@ -94,24 +94,27 @@ print('당신의 출생년도 : {}년, 당신의 나이는 : {}살'.format(year,
 year = int(input('년도를 입력하세요 : '))
 print('윤년 입니다.') if year % 4 == 0 and year % 100 != 0 or year % 400 == 0 else print('평년 입니다.')
 
-'''
+''' 가위/바위/보 대결
 import random as r
 # 가위 : 1
 # 바위 : 2
 # 보   : 3
 cpu = r.randrange(1, 4)
-string = input('"가위/바위/보"를 입력하세요 : ')
+user = input('"가위/바위/보"를 입력하세요 : ')
 
-num = 0
-if string == '가위':
-     num = 1
-elif string == '바위':
-     num = 2
+if cpu == 1:
+     cpu = '가위'
+elif cpu == 2:
+     cpu ='바위'
 else:
-     num = 3
+     cpu = '보'
 
-if num == cpu:
-     print('비겼습니다.')
+print('CPU({}) vs USER({})'.format(cpu, user))
+
+if cpu == user:
+    print('결과 : 비겼습니다.')
+elif (cpu == '가위' and user == '보') or (cpu == '바위' and user == '가위') or (cpu == '보' and user == '바위'):
+    print('결과 : CPU가 이겼습니다.')
 else:
-     print('ddd')
+    print('결과 : USER가 이겼습니다.')
 '''
