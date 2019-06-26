@@ -253,22 +253,23 @@ import time as t
 lotto = set()
 
 # 로또 번호를 뽑는다.
-repeat1 = 0
+loop1 = 0
 while True: # 무한 루프
      lotto.add(r.randrange(1,46))
-     repeat1 = repeat1 + 1
+     loop1 = loop1 + 1
      if len(lotto) == 6:
           break
-print('repeat1 : {}, lotto : {}'.format(repeat1, lotto))
+print('loof1 : {}, lotto : {}'.format(loop1, lotto))
 
 # 보너스 번호를 뽑는다.
-repeat2 = 0
+loop2 = 0
 while True: # 무한 루프
      bonus = r.randrange(1,46)
-     repeat2 = repeat2 + 1
+     loop2 = loop2 + 1
      if bonus not in lotto:
           break
-print('repeat2 : {}, lotto : {}, bonus : {}'.format(repeat2, lotto, bonus))
+print('loof2 : {}, lotto : {}, bonus : {}'.format(loop2, lotto, bonus))
+
 
 # 결과물을 출력한다.
 print('로또 번호 : ', end = '')
@@ -276,3 +277,12 @@ for i in lotto:
      print('%2d ' % i, end = '')
      t.sleep(1)
 print('보너스 : %2d' % bonus)
+
+# 로또 번호 정렬하기
+lotto2 = []
+
+for i in lotto:
+    lotto2.append(i)
+
+lotto2.sort()
+print('오름차순 정렬 : {}+[{}]'.format(lotto2, bonus))
