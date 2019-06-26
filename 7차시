@@ -61,6 +61,22 @@ print('"종료" 작업을 선택하셨습니다.\n')
 #메뉴를 선택하세요 : 5
 #"종료" 작업을 선택하셨습니다.
 
+### 한문장이 너무 길어서 여러 줄에 나누어 작성하고 싶을때 \를 사용한다. (줄바꿈이 있는 마지막에 사용)
+print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+print('aaaaaaaaaaaaaaa\
+aaaaaaaaaaaaaaaa')
+### 한줄에 여러 문장을 작성하고 싶을때 ;를 사용한다. (문장과 문장 사이에 사용)
+print('1')
+print('2')
+print('1'); print('2')
+#=================== RESTART: D:/osc/workspace/12_while.py ===================
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+#1
+#2
+#1
+#2
+
 # 최대공약수, 최소공배수 구하기 (유클리드호제법 사용)
 while True:
      num1, num2 = map(int, input('서로 다른 숫자 2개를 입력하세요 : ').split(' '))
@@ -69,11 +85,9 @@ while True:
      low = 0  # 작은수 저장 변수
 
      if num1 > num2:
-          high = num1
-          low = num2
+          high = num1; low = num2
      elif num2 > num1:
-          high = num2
-          low = num1
+          high = num2; low = num1
      else:
           print('입력한 두 수가 같습니다.')
           break
@@ -95,19 +109,3 @@ while True:
 #
 #서로 다른 숫자 2개를 입력하세요 : 1 1
 #입력한 두 수가 같습니다.
-
-### 한문장이 너무 길어서 여러 줄에 나누어 작성하고 싶을때 \를 사용한다. (줄바꿈이 있는 마지막에 사용)
-print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-print('aaaaaaaaaaaaaaa\
-aaaaaaaaaaaaaaaa')
-### 한줄에 여러 문장을 작성하고 싶을때 ;를 사용한다. (문장과 문장 사이에 사용)
-print('1')
-print('2')
-print('1'); print('2')
-#=================== RESTART: D:/osc/workspace/12_while.py ===================
-#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-#1
-#2
-#1
-#2
