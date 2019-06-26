@@ -49,17 +49,17 @@ else:
 #평균 점수 : 98.7, 등급 : A
 
 idn = input('주민등록번호 13자리를 "-" 없이 입력하세요 : ')
-if idn[6] == '1' or idn[6] == '3':
+if idn[6] == '1' or idn[6] == '3': # 문자로 비교하기
      print('남자 입니다.')
 else:
      print('여자 입니다.')
      
-if int(idn[6]) == 1 or int(idn[6]) == 3:
+if int(idn[6]) == 1 or int(idn[6]) == 3: # 숫자로 변환해서 비교하기
      print('남자 입니다.')
 else:
      print('여자 입니다.')
      
-if int(idn[6]) % 2 == 1:
+if int(idn[6]) % 2 == 1: # 숫자로 변환 후 규칙성으로 비교하기
      print('남자 입니다.')
 else:
      print('여자 입니다.')
