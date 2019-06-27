@@ -244,6 +244,7 @@ print(a.symmetric_difference(b))
 #{1, 2, 6, 7}
 #{1, 2, 6, 7}
 
+
 [ 실습 내용 : 10_LottoNumber_set.py ]
 import random as r
 import time as t
