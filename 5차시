@@ -148,14 +148,14 @@ print(type(s2))
 #{1, 2, 3, 4}
 #<class 'set'>
 
-s3 = set([11, 5, 3, 3, 7, 3, 5, 7, 1]) # 중복되는 값은 자동으로 제거된다.
+s3 = {11, 5, 3, 3, 7, 3, 5, 7, 1} # 중복되는 값은 자동으로 제거된다.
 print(s3)
 print(type(s3))
 #==================== RESTART: D:/osc/workspace/09_set.py ====================
 #{1, 3, 5, 7}
 #<class 'set'>
 
-s4 = set(['f', 'a', 'b', 'b', 'b', 'c', 'd', 'e', 'd', 'd', 'd'])
+s4 = {'f', 'a', 'b', 'b', 'b', 'c', 'd', 'e', 'd', 'd', 'd'}
 print(s4)
 #==================== RESTART: D:/osc/workspace/09_set.py ====================
 #{'f', 'a', 'd', 'e', 'b', 'c'}
@@ -243,7 +243,6 @@ print(a.symmetric_difference(b))
 #==================== RESTART: D:/osc/workspace/09_set.py ====================
 #{1, 2, 6, 7}
 #{1, 2, 6, 7}
-
 
 [ 실습 내용 : 10_LottoNumber_set.py ]
 import random as r
