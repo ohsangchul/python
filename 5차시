@@ -270,7 +270,6 @@ while True: # 무한 루프
           break
 print('loof2 : {}, lotto : {}, bonus : {}'.format(loop2, lotto, bonus))
 
-
 # 결과물을 출력한다.
 print('로또 번호 : ', end = '')
 for i in lotto:
