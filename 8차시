@@ -79,3 +79,82 @@ print('나온 주사위 눈의 합계 : {}'.format(total))
 ### 자료형의 0번째 값을 변수에 저장하고 구문을 시작한다.
 ### 수행이 끝나면 다음 값을 변수에 저장하고 반복한다.
 ### 마지막 값을 변수에 넣고 구문을 실행한후 반복을 종료한다.
+
+# list 이용한 for문
+score = [55, 77, 88, 66, 99]
+count = 0
+for ok in score:
+     count += 1
+     if ok >= 80:
+          print('list : {}번 {}점 합격 입니다.'.format(count, ok))
+#==================== RESTART: D:/osc/workspace/13_for.py ====================
+#list : 3번 88점 합격 입니다.
+#list : 5번 99점 합격 입니다.
+
+# tuple 이용한 for문
+score = (55, 77, 88, 66, 99)
+count = 0
+for ok in score:
+     count += 1
+     if ok >= 80:
+          print('tuple : {}번 {}점 합격 입니다.'.format(count, ok))
+#==================== RESTART: D:/osc/workspace/13_for.py ====================
+#tuple : 3번 88점 합격 입니다.
+#tuple : 5번 99점 합격 입니다.
+
+# set 이용한 for문 (순서가 없기 때문에 어떤 값이 먼저 출력될지 알 수 없다.)
+score = {55, 77, 88, 66, 99}
+count = 0
+for ok in score:
+     count += 1
+     if ok >= 80:
+          print('set : {}번 {}점 합격 입니다.'.format(count, ok))
+#==================== RESTART: D:/osc/workspace/13_for.py ====================
+#set : 2번 99점 합격 입니다.
+#set : 5번 88점 합격 입니다
+
+# dictionary 이용한 for문
+menu = {'커피':100, '우유':150, '생수':50, '케익':100, '세트':200}
+print(menu.keys())
+print(menu.values())
+print(menu.items())
+#==================== RESTART: D:/osc/workspace/13_for.py ====================
+#dict_keys(['커피', '우유', '생수', '케익', '세트'])
+#dict_values([100, 150, 50, 100, 200])
+#dict_items([('커피', 100), ('우유', 150), ('생수', 50), ('케익', 100), ('세트', 200)])
+
+for order in menu: # 딕셔너리명만 적으면 key 값을 출력한다. 딕셔너리명.keys()와 같다
+     print('menu => {}:{}'.format(order, menu[order]))
+#==================== RESTART: D:/osc/workspace/13_for.py ====================
+#menu => 커피:100
+#menu => 우유:150
+#menu => 생수:50
+#menu => 케익:100
+#menu => 세트:200
+
+total = 0
+for order in menu.values():
+    total += order
+print('value => 합계 금액 : {}'.format(total))
+#==================== RESTART: D:/osc/workspace/13_for.py ====================
+#value => 합계 금액 : 600
+
+for order in menu.items():
+    print('items() => {}:{}'.format(order[0], order[1]))
+#==================== RESTART: D:/osc/workspace/13_for.py ====================
+#items() => 커피:100
+#items() => 우유:150
+#items() => 생수:50
+#items() => 케익:100
+#items() => 세트:200
+
+for (key, value) in menu.items():
+    print('items(key, value) => {}:{}'.format(key, value))
+#==================== RESTART: D:/osc/workspace/13_for.py ====================
+#items(key, value) => 커피:100
+#items(key, value) => 우유:150
+#items(key, value) => 생수:50
+#items(key, value) => 케익:100
+#items(key, value) => 세트:200
+
+''' 4부터 1000 사이의 완전수(그 수의 약수 중 자기 자신을 제외한 약수를 모두 더하면 자기 자신이 되는 자연수)를 출력하고 개수를 구하라 '''
