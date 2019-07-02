@@ -58,7 +58,7 @@ print('피보나치 수열의 {}번째 항 까지의 합계는 {} 입니다.'.fo
 ### 파일 쓰기 모드는 파일이 없으면 파일을 만든 후 저장하고, 파일이 있으면 파일에 저장된 내용을 지우고 다시 저장한다. (덮어쓰기)
 ### 디스크에 저장된 파일을 열어서 작업을 한 후 반드시 파일을 닫아야 한다.
 
-file = open('testData.txt', 'w') # 파일 열기
+file = open('16_testData.txt', 'w') # 파일 열기
 for i in range(1, 11):
     # 파일 변수에 write() 함수를 이용해서 출력한다.
     # \n : new line, 줄을 바꾼다.
@@ -80,9 +80,9 @@ print('파일로 쓰기 완료')
 
 # 키보드로 입력하는 문자열을 텍스트 파일로 저장하는 프로그램
 # quit가 입력되면 저장을 종료한다. quit는 소대문자를 구분하지 않는다.
-# filePath = 'D:\\osc\\workspace\\Data\\testData2.txt' # 절대경로
-#filePath = '..\\workspace\\Data\\testData2.txt' # 상대경로 case1
-filePath = '.\\Data\\testData2.txt' # 상대경로 case2
+# filePath = 'D:\\osc\\workspace\\Data\\16_testData2.txt' # 절대경로
+#filePath = '..\\workspace\\Data\\16_testData2.txt' # 상대경로 case1
+filePath = '.\\Data\\16_testData2.txt' # 상대경로 case2
 file = open(filePath, 'w')
 while True:
     string = input('입력 >>> ')
