@@ -1,0 +1,67 @@
+### 파일에서 읽기
+### readline() : 파일의 데이터를 한줄씩 읽어들인다.
+###              읽어들인 데이터를 출력하고 자동으로 줄을 바꾼다.
+###              데이터가 없으면 None(False) 리턴한다.
+filePath = '.\\Data\\16_testData3.txt'
+file = open(filePath, 'r')
+# 텍스트 파일에 데이터가 얼마나 있는지 알 수 없으므로 무한루프로 읽어 드린다.
+while True:
+    line = file.readline()
+    #텍스트 파일에서 읽어들인 데이터가 없으면 무한 루프를 종료한다.
+    if not line: # if len(line.strip()) == 0:
+        break
+    print(line, end ='')
+file.close()
+#=============== RESTART: D:\osc\workspace\16_fileReadWrite.py ===============
+#111
+#222
+#333
+#444
+#555
+
+### readlines() : 파일의 전체 데이터를를 한번에 읽어서 리스트로 얻어온다.
+filePath = '.\\Data\\16_testData4.txt'
+file = open(filePath, 'r')
+lines = file.readlines()
+print(lines)
+print(type(lines))
+for line in lines:
+    if len(line.strip()) != 0:
+        print(line, end='')
+file.close()
+#=============== RESTART: D:\osc\workspace\16_fileReadWrite.py ===============
+#['111\n', '222\n', '333\n', '444\n', '555']
+#<class 'list'>
+#111
+#222
+#333
+#444
+#555
+
+### Windows 환경에서 파이썬으로 파일을 처리 하는 경우 필수 체크 사항
+### [폴더 및 검색 옵션] - [보기 탭] - [고급 설정] - [알려진 파일 형식의 확장명 숨기기] 체크 해제 여부
+
+### read() : 파일의 전체 데이터를 한번에 읽어서 문자열로 얻어온다.
+filePath = '.\\Data\\16_testData4.txt'
+file = open(filePath, 'r')
+string = file.read()
+print(string)
+print(type(string))
+file.close()
+#=============== RESTART: D:\osc\workspace\16_fileReadWrite.py ===============
+#111
+#222
+#333
+#444
+#555
+#<class 'str'>
+
+###  파일에 데이터 추가하기
+filePath = '.\\Data\\16_testData5.txt'
+file = open(filePath, 'a')
+for i in range(1, 11):
+    file.write('{0:02d}번째 줄 입니다.\r\n'.format(i))
+print('파일에 데이터 추가 완료')
+file.close()
+#=============== RESTART: D:\osc\workspace\16_fileReadWrite.py ===============
+#파일에 데이터 추가 완료
