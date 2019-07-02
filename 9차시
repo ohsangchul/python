@@ -20,6 +20,11 @@ for i in range(4, 1001): # 4~1000까지 자연수 범위
         # 찾은 완전수를 출력한다.
         print('{0}번째 완전수는 {1:3d} 입니다.'.format(count, i))
 print('1~1000 사이의 완전수는 {}개 입니다.'.format(count))
+#=============== RESTART: D:\osc\workspace\14_perfectNumber.py ===============
+#1번째 완전수는   6 입니다.
+#2번째 완전수는  28 입니다.
+#3번째 완전수는 496 입니다.
+#1~1000 사이의 완전수는 3개 입니다.
 
 
 [ 실습 내용 : 15_fibonacci.py ]
@@ -42,6 +47,9 @@ for num in range(3, n + 1):
     second_num = next_num
 
 print('피보나치 수열의 {}번째 항 까지의 합계는 {} 입니다.'.format(n, total))
+#================= RESTART: D:\osc\workspace\15_fibonacci.py =================
+#합계를 계산할 항 : 10
+#피보나치 수열의 10번째 항 까지의 합계는 143 입니다.
 
 
 [ 실습 내용 : 16_fileReadWrite.py ]
@@ -61,9 +69,10 @@ for i in range(1, 11):
     # \r : carriage return, 커서를 줄의 맨 처음으로 옮긴다.
     # file.write(str(i) + '\r\n')
     file.write('{0:02d}번째 줄 입니다.\r\n'.format(i))
-# =========================================
 file.close() # 파일 닫기
 print('파일로 쓰기 완료')
+#=============== RESTART: D:\osc\workspace\16_fileReadWrite.py ===============
+#파일로 쓰기 완료
 
 # 파일의 위치를 지정하는 방법은 절대 경로 지정 방식과 상대 경로 지정 방식이 있다.
 # 절대 경로 : 파일이 저장된 디스크 드라이브의 최상위(root) 디렉토리(폴더)부터 텍스트 파일이 저장된 디렉토리 까지의 경로를 의미한다.
@@ -84,6 +93,13 @@ while True:
     if string.upper() == 'QUIT': # string.lower() == 'quit'
         break    
     file.write(string + '\r\n')
-#=======================================
 file.close()
 print('입력 데이터 파일로 쓰기 완료')
+#=============== RESTART: D:\osc\workspace\16_fileReadWrite.py ===============
+#입력 >>> 111
+#입력 >>> 222
+#입력 >>> 333
+#입력 >>> 444
+#입력 >>> 555
+#입력 >>> quit
+#입력 데이터 파일로 쓰기 완료
