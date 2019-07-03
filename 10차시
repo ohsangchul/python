@@ -75,19 +75,19 @@ file.close()
 ###      return 함수의 실행 결과 값 # return 생략 가능
 
 # 두 값을 입력 받아 합계를 리턴하는 함수
-def add(n1, n2):
+def add1(n1, n2):
      return n1 + n2
 
 num1, num2 = map(int, input('두 수를 입력 하세요 : ').split(' '))
-total = add(num1, num2)
+total = add1(num1, num2)
 print('합계 : %d' % total)
 '''
 # 함수 정의가 먼저 선언 되어야 한다. 변수를 공통으로 사용 할 수 있기 때문에 인수 생략이 가능하다.
-def add():
+def add2():
      return n1 + n2
 
 n1, n2 = map(int, input('두 수를 입력 하세요 : ').split(' '))
-total = add()
+total = add2()
 print('합계 : %d' % total)
 
 '''
