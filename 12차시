@@ -1,0 +1,16 @@
+readFilePath = '/etc/passwd'
+readFile = open(readFilePath, 'r')
+
+writeFilePath = './passwd.csv'
+writeFile = open(writeFilePath, 'w')
+
+while True:
+    line = readFile.readline()
+    if not line:
+        break
+    string = line
+    string.replace(":",",")
+    writeFile.write(string)
+
+readFile.close()
+writeFile.close()
