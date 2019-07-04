@@ -1,45 +1,134 @@
-readFilePath = '/etc/passwd'
-readFile = open(readFilePath, 'r')
+[실습내용 : selectSort_19.py]
 
-writeFilePath = './passwd.csv'
-writeFile = open(writeFilePath, 'w')
+'''
+오름차순 ascending
+내림차순 descending
 
-while True:
-    line = readFile.readline()
-    if not line:
-        break
-    string = line
-    string.replace(":",",")
-    writeFile.write(string)
+선택 정렬을 이용한 함수 구현
+'''
+ 
+def ascending(numbers): # def ascending start
+     loof_count = len(numbers)
+     for index_num in range(loof_count): # for1 start
+          for diff_num in range(index_num+1, loof_count): # for2 start
+               if index_num == diff_num: # if1 start
+                    break
+               # if1 end
+               if numbers[index_num] > numbers[diff_num]: # if2 start
+                    # temp = numbers[index_num]
+                    # numbers[index_num] = numbers[diff_num]
+                    # numbers[diff_num] = temp
+                    # 파이썬에는 tuple이 있기 때문에 다음과 같이 값 교환이 가능하다.
+                    numbers[index_num], numbers[diff_num] = numbers[diff_num], numbers[index_num]
+               # if2 end
+          # for2 end
+     # for1 end
+     return numbers
+# def ascending end
 
-readFile.close()
-writeFile.close()
+def descending(numbers): # def descending start
+     loof_count = len(numbers)
+     for index_num in range(loof_count): # for1 start
+          for diff_num in range(index_num+1, loof_count): # for2 start
+               if index_num == diff_num: # if1 start
+                    break
+               # if1 end
+               if numbers[index_num] < numbers[diff_num]: # if2 start
+                    # temp = numbers[index_num]
+                    # numbers[index_num] = numbers[diff_num]
+                    # numbers[diff_num] = temp
+                    # 파이썬에는 tuple이 있기 때문에 다음과 같이 값 교환이 가능하다.
+                    numbers[index_num], numbers[diff_num] = numbers[diff_num], numbers[index_num]
+               # if2 end
+          # for2 end
+     # for1 end
+     return numbers
+# def descending end
+
+### if __name__ == '__main__' 사용 이유는 현재 파일이 다른 프로그램 파일에 import 되어 실행될때 호출되는 함수만 실행 되도록 하기 위해서이다.
+### if __name__ == '__main__' 아래 코딩된 내용은 다른 프로그램에서는 실행되지 않는다.
+if __name__ == '__main__':
+     print('[Call] selectSort_19.py')
+     numbers = []
+     for index in map(int, input('정렬 할 숫자를 입력하세요 : ').split(' ')):
+          numbers.append(index)
+               
+     choice = input('asc or des ? ')
+     if 'asc' == choice.lower():
+          print('오름차순 정렬 결과 : {}'.format(ascending(numbers)))
+     elif 'des' == choice.lower():
+          print('내림차순 정렬 결과 : {}'.format(descending(numbers)))
+     else:
+          print('잘못된 선택 입니다.')
 
 
-oot:x:0:0:root:/root:/bin/bash
-bin:x:1:1:bin:/bin:/sbin/nologin
-daemon:x:2:2:daemon:/sbin:/sbin/nologin
-adm:x:3:4:adm:/var/adm:/sbin/nologin
-lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin
-sync:x:5:0:sync:/sbin:/bin/sync
-shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown
-halt:x:7:0:halt:/sbin:/sbin/halt
-mail:x:8:12:mail:/var/spool/mail:/sbin/nologin
-operator:x:11:0:operator:/root:/sbin/nologin
-games:x:12:100:games:/usr/games:/sbin/nologin
-ftp:x:14:50:FTP User:/var/ftp:/sbin/nologin
-nobody:x:99:99:Nobody:/:/sbin/nologin
-systemd-bus-proxy:x:999:998:systemd Bus Proxy:/:/sbin/nologin
-systemd-network:x:192:192:systemd Network Management:/:/sbin/nologin
-dbus:x:81:81:System message bus:/:/sbin/nologin
-polkitd:x:998:997:User for polkitd:/:/sbin/nologin
-tss:x:59:59:Account used by the trousers package to sandbox the tcsd daemon:/dev/null:/sbin/nologin
-sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin
-postfix:x:89:89::/var/spool/postfix:/sbin/nologin
-osc:x:1000:1000:osc:/home/osc:/bin/bash
-elastic:x:1001:1001::/home/elastic:/bin/bash
-kibana:x:1002:1002::/home/kibana:/bin/bash
-logstash:x:1003:1003::/home/logstash:/bin/bash
-mbeat:x:1004:1004::/home/mbeat:/bin/bash
-fbeat:x:1005:1005::/home/fbeat:/bin/bash
-vboxadd:x:997:1::/var/run/vboxadd:/bin/false
+[실습내용 : 19_1_selectSortModuleImport.py]
+### import 하는 Module 이름은 문자로 시작해야 한다.
+### 사용자가 만든 파이썬선 파일도 import 시켜서 사용할 수 있다.
+### import 하는 Module 이름이 긴 경우 as를 이용해서 별명을 지정할 수 있다.
+### 별명이 지정되면 원래의 Module 이름은 사용하지 못한다.
+import selectSort_19 as sort
+
+if __name__ == '__main__':
+     print('[Call] 19_1_selectSortModuleImport.py')
+     numbers = []
+     for index in map(int, input('정렬 할 숫자를 입력하세요 : ').split(' ')):
+          numbers.append(index)
+             
+     choice = input('asc or des ? ')
+     if 'asc' == choice.lower():
+          print('오름차순 정렬 결과 : {}'.format(sort.ascending(numbers)))
+     elif 'des' == choice.lower():
+          print('내림차순 정렬 결과 : {}'.format(sort.descending(numbers)))
+     else:
+          print('잘못된 선택 입니다.')
+
+
+[실습내용 : 19_2_selectSortModuleImport.py]
+### import 하려는 모듈이 현재 프로그램과 같은 위치에 있지 않을 경우 해당 경로를 포함해서 적어준다.
+### 하위 폴더에 존재하는 경우 \가 아닌 .으로 depth를 표시한다.
+### 다른 드라이브나 상위 경로에 위치한 경우 전체 경로를 system에 등록해준다.
+### 여러 경로에서 가져오는 경우 append를 통해 계속 추가 할 수 있다.
+# import sys
+# sys.path.append('D:\osc\workspace\lib_19')
+# import selectSort_19 as sort
+### 사용 예) pip를 사용해서 설치한 외부 라이브러리는 파이썬이 설치된 폴더 아래 libs 폴더에 설치된다. 이 경우 해당 경로를 등록해준다.
+
+import lib_19.selectSort_19 as sort
+
+if __name__ == '__main__':
+     print('[Call] 19_2_selectSortModuleImport.py')
+     numbers = []
+     for index in map(int, input('정렬 할 숫자를 입력하세요 : ').split(' ')):
+          numbers.append(index)
+             
+     choice = input('asc or des ? ')
+     if 'asc' == choice.lower():
+          print('오름차순 정렬 결과 : {}'.format(sort.ascending(numbers)))
+     elif 'des' == choice.lower():
+          print('내림차순 정렬 결과 : {}'.format(sort.descending(numbers)))
+     else:
+          print('잘못된 선택 입니다.')
+
+
+[실습내용 : 19_3_selectSortModuleImport.py]
+### 모듈의 특정 함수만 import 할 수 있다.
+### 2개 이상의 함수를 한번에 import 할 수도 있다.
+# from selectSort_19 import ascending
+# from selectSort_19 import descending
+# from selectSort_19 import *
+from selectSort_19 import ascending, descending
+
+if __name__ == '__main__':
+     print('[Call] 19_3_selectSortModuleImport.py')
+     numbers = []
+     for index in map(int, input('정렬 할 숫자를 입력하세요 : ').split(' ')):
+          numbers.append(index)
+             
+     choice = input('asc or des ? ')
+     if 'asc' == choice.lower():
+          print('오름차순 정렬 결과 : {}'.format(ascending(numbers)))
+     elif 'des' == choice.lower():
+          print('내림차순 정렬 결과 : {}'.format(descending(numbers)))
+     else:
+          print('잘못된 선택 입니다.')
