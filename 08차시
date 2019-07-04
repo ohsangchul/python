@@ -176,3 +176,4 @@ for naturalNum in range(2,1000):
 print()
 print('완전수 개수 : %d' % count)
 '''
+
