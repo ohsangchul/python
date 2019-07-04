@@ -96,7 +96,7 @@ if __name__ == '__main__': # main() 함수 역활. 프로그램의 시작점을 
 #func8 : 5, 6 (var)
 
 
-[18_functionScope.py]
+[실습내용 : 18_functionScope.py]
 ### 함수 내부와 외부의 변수 이름이 같더라도 다른 변수로 취급된다.
 ### global을 사용하면 함수 내부에서 함수 외부 변수의 값을 변경 할 수 있다. (call by reference)
 
