@@ -1,4 +1,3 @@
-[실습 내용 : 03_string.py]
 # 문자열 인덱싱을 이용한 문자열 수정
 string = 'Pithon'
 print(string)
