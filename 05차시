@@ -285,3 +285,4 @@ for i in lotto:
 
 lotto2.sort()
 print('오름차순 정렬 : {}+[{}]'.format(lotto2, bonus))
+
