@@ -1,0 +1,74 @@
+# 버블 정렬을 이용한 오름차순(ascending), 내림차순(descending) 함수
+def ascFunc(numbers): # def ascending start
+     loof_count = len(numbers)
+     for index_num in range(loof_count): # for1 start
+          for diff_num in range(loof_count-1): # for2 start               
+               if numbers[diff_num] < numbers[diff_num+1]: # if1 start                    
+                    numbers[diff_num], numbers[diff_num+1] = numbers[diff_num+1], numbers[diff_num]
+               # if1 end
+          # for2 end
+     # for1 end
+     return numbers
+# def ascending end
+
+def desFunc(numbers): # def descending start
+     loof_count = len(numbers)
+     for index_num in range(loof_count): # for1 start
+          for diff_num in range(loof_count-1): # for2 start               
+               if numbers[diff_num] > numbers[diff_num+1]: # if1 start                    
+                    numbers[diff_num], numbers[diff_num+1] = numbers[diff_num+1], numbers[diff_num]
+               # if1 end
+          # for2 end
+     # for1 end
+     return numbers
+# def descending end
+
+
+# 1. 정렬할 숫자의 개수와 정렬할 숫자를 입력 받아서 정렬하기
+import bubbleSortFunc as sort
+
+if __name__ == '__main__':
+
+    count = input('정렬할 숫자의 개수를 입력하세요 : ')
+
+    numbers = []
+    while True: # while start
+        num = input('정렬할 숫자를 입력하세요 : ')
+        numbers.append(int(num))
+
+        if int(count) == len(numbers): # if start
+            break
+        # if end
+    # while end
+
+    choice = input('asc(오름차순) 또는 des(내림차순) 정렬을 선택하세요 : ')
+    if 'asc' == choice.lower() or '오름차순' == choice or '오름' == choice:
+        print('오름차순 정렬 결과 : {}'.format(sort.ascFunc(numbers)))
+    elif 'des' == choice.lower() or '내림차순' == choice or '내림' == choice:
+        print('내림차순 정렬 결과 : {}'.format(sort.desFunc(numbers)))
+    else:
+        print('정렬 방법을 잘못 선택 하셨습니다.')
+
+
+# 2. end가 입력되기 전까지 무제한으로 숫자를 입력 받은 후 정렬하기
+import bubbleSortFunc as sort
+
+if __name__ == '__main__':
+
+    numbers = []
+    while True: # while start
+        num = input('정렬할 숫자를 입력하세요 (입력을 마치시려면 end를 입력하세요) : ')
+        if num.lower() == 'end': # if start
+            break
+        else:
+            numbers.append(int(num))
+        # if end        
+    # while end
+
+    choice = input('asc(오름차순) 또는 des(내림차순) 정렬을 선택하세요 : ')
+    if 'asc' == choice.lower() or '오름차순' == choice:
+        print('오름차순 정렬 결과 : {}'.format(sort.ascFunc(numbers)))
+    elif 'des' == choice.lower() or '내림차순' == choice:
+        print('내림차순 정렬 결과 : {}'.format(sort.desFunc(numbers)))
+    else:
+        print('정렬 방법을 잘못 선택 하셨습니다.')
