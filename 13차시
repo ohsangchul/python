@@ -1,3 +1,5 @@
+'''
+[실습내용 : bubbleSort_19.py.py]
 # 버블 정렬을 이용한 오름차순(ascending), 내림차순(descending) 함수
 def ascFunc(numbers): # def ascending start
      loof_count = len(numbers)
@@ -23,9 +25,8 @@ def desFunc(numbers): # def descending start
      return numbers
 # def descending end
 
-
 # 1. 정렬할 숫자의 개수와 정렬할 숫자를 입력 받아서 정렬하기
-import bubbleSortFunc as sort
+import bubbleSort_19 as sort
 
 if __name__ == '__main__':
 
@@ -49,16 +50,15 @@ if __name__ == '__main__':
     else:
         print('정렬 방법을 잘못 선택 하셨습니다.')
 
-
 # 2. end가 입력되기 전까지 무제한으로 숫자를 입력 받은 후 정렬하기
-import bubbleSortFunc as sort
+import bubbleSort_19 as sort
 
 if __name__ == '__main__':
 
     numbers = []
     while True: # while start
-        num = input('정렬할 숫자를 입력하세요 (입력을 마치시려면 end를 입력하세요) : ')
-        if num.lower() == 'end': # if start
+        num = input('정렬할 숫자를 입력하세요. 입력을 마치시려면 end(끝)를 입력하세요 : ')
+        if num.lower() == 'end' or num == '끝': # if start
             break
         else:
             numbers.append(int(num))
@@ -66,9 +66,148 @@ if __name__ == '__main__':
     # while end
 
     choice = input('asc(오름차순) 또는 des(내림차순) 정렬을 선택하세요 : ')
-    if 'asc' == choice.lower() or '오름차순' == choice:
+    if 'asc' == choice.lower() or '오름차순' == choice or '오름' == choice:
         print('오름차순 정렬 결과 : {}'.format(sort.ascFunc(numbers)))
-    elif 'des' == choice.lower() or '내림차순' == choice:
+    elif 'des' == choice.lower() or '내림차순' == choice or '내림' == choice:
         print('내림차순 정렬 결과 : {}'.format(sort.desFunc(numbers)))
     else:
         print('정렬 방법을 잘못 선택 하셨습니다.')
+'''
+
+
+[실습내용 : 19_4_bubbleSort_1.py]
+from bubbleSort_19 import ascFunc, desFunc
+
+if __name__ == '__main__':
+     num = int(input('정렬할 데이터의 개수 : '))
+
+     data = [0 for count in range(num)]
+
+     for index in range(num): # for1 start
+          insert = int(input('{}번째 데이터 : '.format(index+1)))
+          data[index] = insert
+     # for1 end
+
+     selectSort = int(input('정렬 방법 (오름:1/내림:2)'))
+
+     if selectSort == 1:
+          data = ascFunc(data)
+     elif selectSort == 2:
+          data = desFunc(data)
+     else:
+          print('정렬 방법을 잘못 선택 하셨습니다.')
+
+     print('결과 : {}'.format(data))
+
+
+[실습내용 : 19_4_bubbleSort_2.py]
+from bubbleSort_19 import ascFunc, desFunc
+
+if __name__ == '__main__':
+     data = []
+     count = 0
+     while True: # while1 start
+          count += 1
+          insert = int(input('{}번째 데이터 : '.format(count)))
+          if insert == 999:
+               break
+          data.append(insert)          
+     # while1 end
+
+     selectSort = int(input('정렬 방법 (오름:1/내림:2)'))
+
+     if selectSort == 1:
+          data = ascFunc(data)
+     elif selectSort == 2:
+          data = desFunc(data)
+     else:
+          print('정렬 방법을 잘못 선택 하셨습니다.')
+
+     print('결과 : {}'.format(data))
+
+
+[실습내용 : 20_1_bubbleSort.py]
+def ascFunc(numbers): # def ascending start
+     loof_count = len(numbers)
+     for diff_num in range(loof_count): # for1 start
+          # 한번 정렬을 수행하면 마지막 자리는 정렬이 완료된 숫자가 들어가기 때문에 다음 정렬시에는 비교할 필요가 없다.
+          for index_num in range(loof_count-diff_num-1): # for2 start
+               if numbers[index_num] < numbers[index_num+1]: # if1 start                    
+                    numbers[index_num], numbers[index_num+1] = numbers[index_num+1], numbers[index_num]
+               # if1 end
+          # for2 end
+          print('{}번째 정렬 결과 : {}'.format(diff_num+1, numbers))
+     # for1 end
+     return numbers
+# def ascending end
+
+def desFunc(numbers): # def descending start
+     loof_count = len(numbers)
+     for diff_num in range(loof_count): # for1 start
+          for index_num in range(loof_count-diffx_num-1): # for2 start
+               if numbers[index_num] > numbers[index_num+1]: # if1 start                    
+                    numbers[index_num], numbers[index_num+1] = numbers[index_num+1], numbers[index_num]
+               # if1 end
+          # for2 end
+     # for1 end
+     return numbers
+# def descending end
+
+
+[실습내용 : 20_2_bubbleSort.py]
+# 정렬중 정렬이 완료될 경우 정렬을 종료하기
+def ascFunc(numbers): # def ascending start
+     loof_count = len(numbers)
+     for diff_num in range(loof_count): # for1 start
+          flag = True
+          for index_num in range(loof_count-diff_num-1): # for2 start
+               if numbers[index_num] < numbers[index_num+1]: # if1 start                    
+                    numbers[index_num], numbers[index_num+1] = numbers[index_num+1], numbers[index_num]
+                    flag = False
+               # if1 end
+          # for2 end
+          if flag:
+               break
+          print('{}번째 정렬 결과 : {}'.format(diff_num+1, numbers))
+     # for1 end
+     return numbers
+# def ascending end
+
+def desFunc(numbers): # def descending start
+     loof_count = len(numbers)
+     for diff_num in range(loof_count): # for1 start
+          flag = True
+          for index_num in range(loof_count-diff_num-1): # for2 start
+               if numbers[index_num] > numbers[index_num+1]: # if1 start                    
+                    numbers[index_num], numbers[index_num+1] = numbers[index_num+1], numbers[index_num]
+                    flag = False
+               # if1 end
+          # for2 end
+          if flag:
+               break
+          print('{}번째 정렬 결과 : {}'.format(diff_num+1, numbers))
+     # for1 end
+     return numbers
+# def descending end
+
+
+[실습내용 : 21_ranking.py]
+if __name__ == '__main__':
+     score = [70, 100, 90, 100, 80]
+     rank = [1, 1, 1, 1, 1]
+
+     for diff_num in range(len(score)-1): # for1 start
+          for index_num in range(diff_num, len(score)): # for2 start
+               if score[diff_num] > score[index_num]:
+                    rank[index_num] += 1
+               elif score[diff_num] < score[index_num]:
+                    rank[diff_num] += 1
+          # for2 end
+     # for1 end
+
+for view in range(len(score)):
+     print('{0:3d}점은 {1}등 입니다.'.format(score[view], rank[view]))
+
+'''
+10점당 별 1개씩 찍기
+'''
