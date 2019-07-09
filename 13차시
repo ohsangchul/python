@@ -206,14 +206,12 @@ if __name__ == '__main__':
      # for1 end
 
 for view in range(len(score)):
-     print('{0:3d}점은 {1}등 입니다.'.format(score[view], rank[view]), end='')
-'''
-# 10점당 별 1개씩 출력하기
-     print('[', end='')
-     for loof in range(1, 11):
-         if score[view]//10 > loof:
+     print('{0:3d}점은 {1}등 입니다.'.format(score[view], rank[view]))
+     # 10점당 검은별 1개씩 출력하기
+     # 5점 이상이면 흰색별 1개 출력하기
+     for loof in range(score[view]//10):
              print('★', end='')
-         else:
-             print(' ', end='')
-     print(']')
-'''
+     # print('★' * (score[view]//10), end ='')
+     if score[view]%10 >= 5:
+          print('☆', end='')
+     print()
