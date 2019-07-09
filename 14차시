@@ -1,0 +1,87 @@
+[실습 내용 : 22_cardshuffle.py]
+# 카드 섞어서 출력하기
+import random as r
+
+# 카드 출력에 필요한 숫자와 무늬를 기억하는 각각의 리스트를 만든다.
+cardNum = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+pattern = ['♠', '◆', '♥', '♣']
+
+# 빈 리스트를 만들어 52장의 카드를 세팅한다
+'''
+cards = []
+for setting in range(52):
+     cards.append(setting)
+'''
+cards = [setting for setting in range(52)]
+
+# cards 리스트에 저장된 숫자를 한줄에 13개씩 출력한다
+print('=' * 27, ' [asis] ', '=' * 27)
+for view in range(52):
+     #print('%2d ' % cards[view], end='') # 52장 카드 확인 (0~51)
+     #print('%2s ' % cardNum[cards[view]%13], end='') # 각 라인별 숫자 세팅 (A~K)
+     #print('%2s ' % pattern[cards[view]//13], end='') # 각 라인별 무늬 세팅 (♠, ◆, ♥, ♣)
+     print('%2s%2s ' % (pattern[cards[view]//13], cardNum[cards[view]%13]), end='') # 숫자와 무늬 결합
+     if (view+1)%13 == 0:
+          print()
+
+# 카드를 섞는다
+for loof in range(1000):
+     ran = r.randrange(0,52)
+     cards[0], cards[ran] = cards[ran], cards[0]
+
+# 섞은 카드를 출력한다
+print('=' * 27, ' [tobe] ', '=' * 27)
+for view in range(52):
+     print('%2s%2s ' % (pattern[cards[view]//13], cardNum[cards[view]%13]), end='')
+     if (view+1)%13 == 0:
+          print()
+
+
+[실습 내용 : calendarModule_23.py]
+# 달력을 만들기 위해 사용할 4개의 함수가 정의된 모듈 파일
+
+# 년도를 인수로 넘겨받아 윤년, 평년을 판변해 윤년이면 True, 평년이면 False를 return하는 함수
+# 논리값을 기억하는 변수나 논리값을 리턴하는 함수의 이름은 'is'로 시작하는 것이 관행이다.
+def isLeapYear(year): # def isLeapYear start
+     # 년도가 4로 나누어 떨어지고, 100으로 나누어 떨어지지 않거나, 400으로 나누어 떨어지면 윤년이다.
+     return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
+# def isLeapYear end
+
+# 년, 월을 인수로 넘겨받아 그 달의 마지막 날짜를 리턴하는 함수
+def lastDay(year, month): # def lastDay start
+     # 각 달의 마지말 날짜를 기억하는 리스트를 만든다.
+     day = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+     # 윤년이면 2월 마지막 날짜를 29로 변경한다.
+     if isLeapYear(year):
+          day[1] = 29
+     return day[month-1]
+# def lastDay end
+
+# 년, 월, 일을 인수로 넘겨 받아 1년 1월 1일 부터 지정한 날짜까지 지난 날짜의 합계를 리턴하는 함수
+def totalDay(year, month, day): # def totalDay start
+     date = 0
+     # 전년까지 날짜 합계
+     #date = (year-1)*365 + (year-1)//4 - (year-1)//100 + (year-1)//400
+     for year_loof in range(year-1):
+          for month_loof in range(12):
+               date += lastDay(year_loof+1, month_loof+1)
+     # 전월까지 날짜 합계
+     for thisYearMonth in range(month-1):
+          date += lastDay(year, thisYearMonth+1)
+     # 이번달 지난 날짜 합계
+     date += day
+     # 전체 날짜 합
+     return date          
+# def totalDay end
+
+# 년, 월, 일을 인수로 넘겨 받아 요일을 계산해서 숫자로 리턴하는 함수
+# 일(0), 월(1), 화(2), 수(3), 목(4), 금(5), 토(6)
+def weekDay(year, month, day): # def weekDay start
+     return totalDay(year, month, day)%7
+# def weekDay end
+
+if __name__ == '__main__':
+     print(isLeapYear(2019))
+     print(lastDay(2019, 7))
+     print(totalDay(2019, 7, 9))
+     print(weekDay(2019, 7, 9))
