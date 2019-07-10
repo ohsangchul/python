@@ -36,7 +36,7 @@
   - jupyter notebook로 작성한 내용을 .py파일로도 생성 할 수 있다. ([File] => [Download as])
 
 5. 기타
-  - Font 변경 방법 : C:\Users\Administrator(또는 사용자계정)\.jupyter 폴더에 custom 폴더를 생성하고 아래의 css 파일을 추가한다.
+  - Font 변경 방법 : C:\Users\Administrator(또는 사용자계정)\.jupyter 폴더에 custom 폴더를 생성하고 아래의 css 파일을 추가한다.  
   ** custom.css **
   .CodeMirror pre {font-family: D2Coding; 
                    font-size: 12pt; 
