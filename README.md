@@ -22,36 +22,36 @@
 
 # jupyter notebook 설치하기
 1. 환경 변수 설정 (path 추가)
-   - C:\Users\(사용자계정)\AppData\Local\Programs\Python\Python37-32
-   - C:\Users\(사용자계정)\AppData\Local\Programs\Python\Python37-32\Scripts
+  - C:\Users\(사용자계정)\AppData\Local\Programs\Python\Python37-32
+  - C:\Users\(사용자계정)\AppData\Local\Programs\Python\Python37-32\Scripts
 
 2. 설치 (최신버전 업그레이드는 선택)
-   - [cmd] => [pip install jupyter notebook]
+  - [cmd] => [pip install jupyter notebook]
 
 3. 실행 (프로그램이 실행된 경로가 root가 된다)
-   - [cmd] => [프로그램을 사용할 위치로 이동 : python source가 있는 곳(workspace)] => [jupyter notebook]
+  - [cmd] => [프로그램을 사용할 위치로 이동 : python source가 있는 곳(workspace)] => [jupyter notebook]
 
 4. 비고
-   - jupyter notebook에서는 .py파일 오픈만 가능하고 실행은 할 수 없다.
-   - jupyter notebook로 작성한 내용을 .py파일로도 생성 할 수 있다. ([File] => [Download as])
+  - jupyter notebook에서는 .py파일 오픈만 가능하고 실행은 할 수 없다.
+  - jupyter notebook로 작성한 내용을 .py파일로도 생성 할 수 있다. ([File] => [Download as])
 
 5. 기타
-   - Font 변경 방법 : C:\Users\Administrator(또는 사용자계정)\.jupyter 폴더에 custom 폴더를 생성하고 아래의 css 파일을 추가한다.
-   ** custom.css **
-   .CodeMirror pre {font-family: D2Coding; 
-                    font-size: 12pt; 
-                    line-height: 140%; 
-                    font-weight: bold;}
-   .container { width:100% !important; }
-   div.output pre{
-       font-family: D2Coding;
-       font-size: 12pt;
-       font-weight: bold;
-       color: blue;
-   }
-   div > p {
-       font-family: D2Coding;
-       font-size: 12pt;
-       font-weight: bold;
-       color: red;
-   }
+  - Font 변경 방법 : C:\Users\Administrator(또는 사용자계정)\.jupyter 폴더에 custom 폴더를 생성하고 아래의 css 파일을 추가한다.
+  ** custom.css **
+  .CodeMirror pre {font-family: D2Coding; 
+                   font-size: 12pt; 
+                   line-height: 140%; 
+                   font-weight: bold;}
+  .container { width:100% !important; }
+  div.output pre{
+      font-family: D2Coding;
+      font-size: 12pt;
+      font-weight: bold;
+      color: blue;
+  }
+  div > p {
+      font-family: D2Coding;
+      font-size: 12pt;
+      font-weight: bold;
+      color: red;
+  }
