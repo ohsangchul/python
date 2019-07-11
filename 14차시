@@ -25,7 +25,7 @@ for view in range(52):
           print()
 
 # 카드를 섞는다
-for loof in range(1000):
+for loop in range(1000):
      ran = r.randrange(0,52)
      cards[0], cards[ran] = cards[ran], cards[0]
 
