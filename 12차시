@@ -8,9 +8,9 @@
 '''
  
 def ascending(numbers): # def ascending start
-     loof_count = len(numbers)
-     for index_num in range(loof_count): # for1 start
-          for diff_num in range(index_num+1, loof_count): # for2 start
+     loop_count = len(numbers)
+     for index_num in range(loop_count): # for1 start
+          for diff_num in range(index_num+1, loop_count): # for2 start
                if index_num == diff_num: # if1 start
                     break
                # if1 end
@@ -27,9 +27,9 @@ def ascending(numbers): # def ascending start
 # def ascending end
 
 def descending(numbers): # def descending start
-     loof_count = len(numbers)
-     for index_num in range(loof_count): # for1 start
-          for diff_num in range(index_num+1, loof_count): # for2 start
+     loop_count = len(numbers)
+     for index_num in range(loop_count): # for1 start
+          for diff_num in range(index_num+1, loop_count): # for2 start
                if index_num == diff_num: # if1 start
                     break
                # if1 end
