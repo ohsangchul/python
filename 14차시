@@ -62,9 +62,9 @@ def totalDay(year, month, day): # def totalDay start
      date = 0
      # 전년까지 날짜 합계
      #date = (year-1)*365 + (year-1)//4 - (year-1)//100 + (year-1)//400
-     for year_loof in range(year-1):
-          for month_loof in range(12):
-               date += lastDay(year_loof+1, month_loof+1)
+     for year_loop in range(year-1):
+          for month_loop in range(12):
+               date += lastDay(year_loop+1, month_loop+1)
      # 전월까지 날짜 합계
      for thisYearMonth in range(month-1):
           date += lastDay(year, thisYearMonth+1)
