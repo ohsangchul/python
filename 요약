@@ -416,3 +416,48 @@ import 하려는 모듈이 현재 프로그램과 같은 위치에 있지 않을
   import selectSort_19 as sort
   사용 예) pip를 사용해서 설치한 외부 라이브러리는 파이썬이 설치된 폴더 아래 libs 폴더에 설치된다. 이 경우 해당 경로를 등록해서 사용한다.
 ### module end ###
+
+### 내장 모듈 datetime start ###
+컴퓨터 시스템의 날짜와 시간을 얻어온다.
+import datetime
+  now = datetime.datetime.now()
+import datetime as dt
+  now = dt.datetime.now()
+from datetime import *
+  now = datetime.now()
+from datetime import datetime as dt
+  now = dt.now()
+
+  print(type(now))   # <class 'datetime.datetime'>
+  print(now.year)    # 년
+  print(now.month)   # 월
+  print(now.day)     # 일
+  print(now.minute)  # 분
+  print(now.second)  # 초
+  print(now.microsecond)  # 밀리초
+  print(now.weekday())    # 요일 (월:0 ~ 일:6)
+
+데이터 출력시 서식을 지정하는 함수 : strftime('출력서식')
+%Y : 년도 4자리
+%y : 년도 2자리
+%m : 월(숫자)
+%h : 월(영어, 단축)
+%B : 월(영어, 전체)
+%d : 일
+%a : 요일(단축)
+%A : 요일(전체)
+  print(now.strftime('%Y-%m-%d'))  # 2019-07-11
+  print(now.strftime('%y-%m-%d'))  # 19-07-11
+  print(now.strftime('%y-%h-%d'))  # 19-Jul-11
+  print(now.strftime('%y-%B-%d'))  # 19-July-11
+  print(now.strftime('%y-%B-%d %a'))  # 19-July-11 Thu
+  print(now.strftime('%y-%B-%d %A'))  # 19-July-11 Thursday
+
+%H : 시(24시)
+%I : 시(12시)
+%M : 분
+%S : 초
+%p : AM/PM
+  print(now.strftime('%H:%M:%S'))     # 20:15:46
+  print(now.strftime('%p %I:%M:%S'))  # PM 08:15:46
+### 내장 모듈 datetime end ###
