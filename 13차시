@@ -2,9 +2,9 @@
 [실습내용 : bubbleSort_19.py.py]
 # 버블 정렬을 이용한 오름차순(ascending), 내림차순(descending) 함수
 def ascFunc(numbers): # def ascending start
-     loof_count = len(numbers)
-     for index_num in range(loof_count): # for1 start
-          for diff_num in range(loof_count-1): # for2 start               
+     loop_count = len(numbers)
+     for index_num in range(loop_count): # for1 start
+          for diff_num in range(loop_count-1): # for2 start               
                if numbers[diff_num] < numbers[diff_num+1]: # if1 start                    
                     numbers[diff_num], numbers[diff_num+1] = numbers[diff_num+1], numbers[diff_num]
                # if1 end
@@ -14,9 +14,9 @@ def ascFunc(numbers): # def ascending start
 # def ascending end
 
 def desFunc(numbers): # def descending start
-     loof_count = len(numbers)
-     for index_num in range(loof_count): # for1 start
-          for diff_num in range(loof_count-1): # for2 start               
+     loop_count = len(numbers)
+     for index_num in range(loop_count): # for1 start
+          for diff_num in range(loop_count-1): # for2 start               
                if numbers[diff_num] > numbers[diff_num+1]: # if1 start                    
                     numbers[diff_num], numbers[diff_num+1] = numbers[diff_num+1], numbers[diff_num]
                # if1 end
