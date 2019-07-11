@@ -128,10 +128,10 @@ if __name__ == '__main__':
 
 [실습내용 : 20_1_bubbleSort.py]
 def ascFunc(numbers): # def ascending start
-     loof_count = len(numbers)
-     for diff_num in range(loof_count): # for1 start
+     loop_count = len(numbers)
+     for diff_num in range(loop_count): # for1 start
           # 한번 정렬을 수행하면 마지막 자리는 정렬이 완료된 숫자가 들어가기 때문에 다음 정렬시에는 비교할 필요가 없다.
-          for index_num in range(loof_count-diff_num-1): # for2 start
+          for index_num in range(loop_count-diff_num-1): # for2 start
                if numbers[index_num] < numbers[index_num+1]: # if1 start                    
                     numbers[index_num], numbers[index_num+1] = numbers[index_num+1], numbers[index_num]
                # if1 end
@@ -142,9 +142,9 @@ def ascFunc(numbers): # def ascending start
 # def ascending end
 
 def desFunc(numbers): # def descending start
-     loof_count = len(numbers)
-     for diff_num in range(loof_count): # for1 start
-          for index_num in range(loof_count-diffx_num-1): # for2 start
+     loop_count = len(numbers)
+     for diff_num in range(loop_count): # for1 start
+          for index_num in range(loop_count-diffx_num-1): # for2 start
                if numbers[index_num] > numbers[index_num+1]: # if1 start                    
                     numbers[index_num], numbers[index_num+1] = numbers[index_num+1], numbers[index_num]
                # if1 end
@@ -157,10 +157,10 @@ def desFunc(numbers): # def descending start
 [실습내용 : 20_2_bubbleSort.py]
 # 정렬중 정렬이 완료될 경우 정렬을 종료하기
 def ascFunc(numbers): # def ascending start
-     loof_count = len(numbers)
-     for diff_num in range(loof_count): # for1 start
+     loop_count = len(numbers)
+     for diff_num in range(loop_count): # for1 start
           flag = True
-          for index_num in range(loof_count-diff_num-1): # for2 start
+          for index_num in range(loop_count-diff_num-1): # for2 start
                if numbers[index_num] < numbers[index_num+1]: # if1 start                    
                     numbers[index_num], numbers[index_num+1] = numbers[index_num+1], numbers[index_num]
                     flag = False
@@ -174,10 +174,10 @@ def ascFunc(numbers): # def ascending start
 # def ascending end
 
 def desFunc(numbers): # def descending start
-     loof_count = len(numbers)
-     for diff_num in range(loof_count): # for1 start
+     loop_count = len(numbers)
+     for diff_num in range(loop_count): # for1 start
           flag = True
-          for index_num in range(loof_count-diff_num-1): # for2 start
+          for index_num in range(loop_count-diff_num-1): # for2 start
                if numbers[index_num] > numbers[index_num+1]: # if1 start                    
                     numbers[index_num], numbers[index_num+1] = numbers[index_num+1], numbers[index_num]
                     flag = False
@@ -209,7 +209,7 @@ for view in range(len(score)):
      print('{0:3d}점은 {1}등 입니다.'.format(score[view], rank[view]))
      # 10점당 검은별 1개씩 출력하기
      # 5점 이상이면 흰색별 1개 출력하기
-     for loof in range(score[view]//10):
+     for loop in range(score[view]//10):
              print('★', end='')
      # print('★' * (score[view]//10), end ='')
      if score[view]%10 >= 5:
