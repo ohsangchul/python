@@ -461,3 +461,25 @@ from datetime import datetime as dt
   print(now.strftime('%H:%M:%S'))     # 20:15:46
   print(now.strftime('%p %I:%M:%S'))  # PM 08:15:46
 ### 내장 모듈 datetime end ###
+
+### 예외처리 start ###
+프로그램이 동작할때 잘못 실행되는 것을 방지하기 위해 오류가 발생하는데
+try ~ except를 사용하면 오류가 발생 되었을때 별도의 처리를 하거나 무시하고 실행 할 수 있다.
+오류가 발생될 것으로 예상되는 문장을 try 블록에 쓰고 해당 블록에 있는 코드가 실행중 오류가 발생하면 except 블록에 있는 코드가 실행된다.
+
+  try:
+    오류가 발생될 것으로 예상되는 문장
+    ...
+  except [오류이름 [as 오류 변수]]:
+    except에 오류 이름을 쓰지 않으면 모든 오류에 대해서 except가 실행된다.
+    except에 오류 이름을 지정하면 해당 오류 발생시에만 except가 실행된다.
+    오류가 발생하면 실행 할 문장
+    오류 발생시 아무런 동작을 하지 않으려면 pass를 사용한다.    
+    ...
+  finally:
+    오류 발생 여부와 관계없이 무조건 실행되는 문장
+    ...
+### 예외처리 end ###
+
+### class start ###
+### class end ###
