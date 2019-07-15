@@ -130,7 +130,7 @@ data = score('테스트', 100, 80, 90)
 print(data)
 
 
-[실습 내용 : 30_30_naver_realTime_searchWord.ipynb : 30_30_naver_realTime_searchWord.py]
+[실습 내용 : 30_naver_realTime_searchWord.ipynb : 30_naver_realTime_searchWord.py]
 # 크롤링(스크레핑, 파싱)에 사용할 라이브러리를 import 한다.
 # pip install requests : 크롤링할 사이트에 접속해서 html 문서를 읽어온다.
 # pip install beautifulsoup4 : requests를 사용해 읽어온 html 문서를 파싱한다.
