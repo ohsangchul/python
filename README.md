@@ -38,20 +38,41 @@
 5. 기타
   - Font 변경 방법 : C:\Users\Administrator(또는 사용자계정)\.jupyter 폴더에 custom 폴더를 생성하고 아래의 css 파일을 추가한다.  
   ** custom.css **
-  .CodeMirror pre {font-family: D2Coding; 
-                   font-size: 12pt; 
-                   line-height: 140%; 
-                   font-weight: bold;}
-  .container { width:100% !important; }
+  .CodeMirror pre {
+   font-family: D2Coding; 
+   font-size: 12pt; 
+   line-height: 140%; 
+   font-weight: bold;
+  }
+  .container {
+   width:100% !important;
+  }
   div.output pre{
-      font-family: D2Coding;
-      font-size: 12pt;
-      font-weight: bold;
-      color: blue;
+   font-family: D2Coding;
+   font-size: 12pt;
+   line-height: 140%;
+   font-weight: bold;
+   color: blue;
   }
   div > p {
-      font-family: D2Coding;
-      font-size: 12pt;
-      font-weight: bold;
-      color: red;
+   font-family: D2Coding;
+   font-size: 12pt;
+   line-height: 140%;
+   font-weight: bold;
+   color: red;
   }
+
+# 참고 사이트 주소
+< Python >
+ https://docs.python.org/ko/3/
+ https://wikidocs.net/book/1553
+ https://code0320.tistory.com/category/python
+ http://pythonstudy.xyz/
+
+< Anaconda >
+ http://docs.anaconda.com/
+
+< Pandas >
+ https://dataitgirls2.github.io/10minutes2pandas/
+ https://doorbw.tistory.com/172
+ https://pinkwink.kr/734
