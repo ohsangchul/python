@@ -1,0 +1,30 @@
+[실습 내용 : 30_30_naver_realTime_searchWord.ipynb : 30_30_naver_realTime_searchWord.py]
+# 크롤링(스크레핑, 파싱)에 사용할 라이브러리를 import 한다.
+# pip install requests : 크롤링할 사이트에 접속해서 html 문서를 읽어온다.
+# pip install beautifulsoup4 : requests를 사용해 읽어온 html 문서를 파싱한다.
+
+import requests
+from bs4 import BeautifulSoup
+
+# 사이트에 접속해서 html 문서를 읽어온다
+siteHtml = requests.get('https://www.naver.com/')
+#print(naver) # <Response [200]> : 정상접속 응답 코드 확인
+
+# 사이트의 모든 정보를 읽어오기 때문에 html 태그만 얻어온다.
+htmlText = siteHtml.text
+#print(html)
+
+# Beautifulsoup 모듈의 Beautifulsoup() 함수를 사용해서 읽어온 html 문자를 파싱한다.
+soup = BeautifulSoup(htmlText, 'html.parser')
+#print(soup)
+
+# 네이버 실시간 검색어는 class 속성이 ah_k인 span 태그에 들어있다.
+# findAll('태그이름', ['속성이름':'속성값'])
+word = soup.findAll('span', {'class':'ah_k'})
+#print(word)
+
+# 1~20위 실시간 검색 키워드만 출력한다.
+num = 0
+for naver in word[:20]:
+    num += 1
+    print('[{0:2d}위] {1}'.format(num,naver.text))
