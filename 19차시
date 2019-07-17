@@ -1,0 +1,33 @@
+[실습 내용 : 33_scraping(basicenglishspeaking).ipynb : 33_scraping(basicenglishspeaking).py]
+import requests
+from bs4 import BeautifulSoup
+
+def getSubject(url): # def getSubject start
+    subjects = []
+    
+    request = requests.get(url)
+    #print(request)
+    
+    html = request.text
+    #print(html)
+    
+    soup = BeautifulSoup(html, 'html.parser')
+    #print(soup)
+    
+    divs = soup.findAll('div', {'class':'su-column-inner su-clearfix'})
+    
+    for div in divs:
+        subjects.append(div.text)
+
+    return subjects
+# def getSubject end
+
+if __name__ == '__main__':
+    url = 'https://basicenglishspeaking.com/daily-english-conversation-topics/'
+    subjects = getSubject(url)
+    
+    for subjectList in range(len(subjects)):
+        print('{}'.format(subjects[subjectList]))
+
+
+[실습 내용 : 34_scraping(basicenglishspeaking)2.ipynb : 34_scraping(basicenglishspeaking)2.py]
