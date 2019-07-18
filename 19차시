@@ -31,3 +31,72 @@ if __name__ == '__main__':
 
 
 [실습 내용 : 34_scraping(basicenglishspeaking)2.ipynb : 34_scraping(basicenglishspeaking)2.py]
+import requests
+from bs4 import BeautifulSoup
+import time
+
+class Conversation: # class Conversation start
+    def __init__(self, question, answer):
+        self.question = question; self.answer = answer
+        
+    def __str__(self):
+        return '질문 : ' + self.question + '\n답변 : ' + self.answer
+# class Conversation end
+
+def getSubject(url): # def getSubject start
+    subjects = []
+    contentLinks = []
+    
+    request = requests.get(url)
+    #print(request)
+    
+    html = request.text
+    #print(html)
+    
+    soup = BeautifulSoup(html, 'html.parser')
+    #print(soup)
+    
+    #header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Geoko'}
+    #divs = soup.findAll('div', {'class':'su-column-inner su-clearfix'}, headers = header)
+    divs = soup.findAll('div', {'class':'su-column-inner su-clearfix'})
+    
+    for div in divs:
+        links = div.findAll('a')
+        for link in links:
+            subjects.append(link.text)
+            contentLinks.append(link.get('href'))
+            
+    return (subjects, contentLinks)
+# def getSubject en
+
+if __name__ == '__main__':
+    url = 'https://basicenglishspeaking.com/daily-english-conversation-topics/'
+    subjects, contentLinks = getSubject(url)
+    
+    '''
+    for dataList in range(len(subjects)):
+        print('{} - {}'.format(subjects[dataList], contentLinks[dataList]))
+    '''
+    
+    conversation = []
+    talkNum = 0
+    
+    for talkNum in range(len(contentLinks)):
+        print('{0:2d} / {1} {2}'.format(talkNum+1, len(subjects), subjects[talkNum]))
+        
+        request = requests.get(contentLinks[talkNum])
+        #time.sleep(1)
+        
+        html = request.text
+        soup = BeautifulSoup(html, 'html.parser')
+        
+        divs = soup.findAll('div', {'class' : 'sc_player_container1'})
+            
+        for div in divs:
+            if divs.index(div) % 2 != 0:                
+                answer = div.next_sibling
+                c = Conversation(question, answer)
+                conversation.append(c)
+                print(c)
+            else:                
+                question = div.next_sibling                
