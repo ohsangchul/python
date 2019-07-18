@@ -1,0 +1,78 @@
+[실습 내용 : 35_scraping(naver_dataLab).ipynb : 35_scraping(naver_dataLab).py]
+import requests
+from bs4 import BeautifulSoup
+
+header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'}
+request = requests.get('https://datalab.naver.com/keyword/realtimeList.naver?where=main', headers = header)
+#print(request)
+    
+html = request.text
+#print(html)
+    
+soup = BeautifulSoup(html, 'html.parser')
+#print(soup)
+
+age = input('연령대를 선택하세요(0:전체, 1:10대, 2:20대, 3:30대, 4:40대, 5:50대이상) : ')
+ageList = {'0':'All', '1':'10s', '2':'20s', '3':'30s', '4':'40s', '5':'50s'}
+
+words = soup.findAll('div', {'data-age' : ageList.get(age)})
+ranks = words[0].findAll('span', {'class' : 'title'})
+
+print('{} 검색어 순위'.format(ageList.get(age)))
+for rank in range(len(ranks)):
+    print('{0:2d}위 : {1}'.format(rank+1, ranks[rank].text))
+
+
+[실습 내용 : 36_scraping(naver_dataLab)_selenium.ipynb : 36_scraping(naver_dataLab)_selenium.py]
+from selenium import webdriver
+from bs4 import BeautifulSoup
+
+# selenium에서 실행할 가상 크롬 웹 브라우저의 경로를 설정한다.
+driver = webdriver.Chrome('D:\\osc\\tools\\chromedriver.exe')
+# selenium에서 크롬을 통해서 지정된 url의 사이트에 접속한다.
+driver.get("https://datalab.naver.com/keyword/realtimeList.naver?where=main")
+# selenium으로 실행한 크롬 브라우저의 페이지 소스를 얻어온다.
+html = driver.page_source
+# print(html)
+soup = BeautifulSoup(html, 'html.parser')
+# print(soup)
+
+age = input('연령대를 선택하세요(0 : 전체, 1 : 10대, 2 : 20대, 3 : 30대, 4 : 40대, 5 : 50대이상) : ')
+ageList = {'0' : 'all', '1' : '10s', '2' : '20s', '3' : '30s', '4' : '40s', '5' : '50s'}
+
+words = soup.findAll('div', {'data-age' : ageList.get(age)})
+ranks = words[0].findAll('span', {'class' : 'title'})
+
+print('{} 검색어 순위'.format(ageList.get(age)))
+for rank in range(len(ranks)):
+    print('{0:2d}위 : {1}'.format(rank+1, ranks[rank].text))
+
+
+[실습 내용 : 37_scraping(bugs_top100).ipynb : 37_scraping(bugs_top100).py]
+import requests
+from bs4 import BeautifulSoup
+
+header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'}
+request = requests.get('https://music.bugs.co.kr/chart/', headers = header)
+#print(request)
+    
+html = request.text
+#print(html)
+soup = BeautifulSoup(html, 'html.parser')
+#print(soup)
+
+ranks = soup.findAll('p', {'class' : 'title'})
+artists = soup.findAll('p', {'class' : 'artist'})
+
+fileSave = open('busgMusicTop100.txt', 'w', encoding="utf-8")
+for musicList in range(len(ranks)):
+    ranks[musicList] = ranks[musicList].text.strip().split('\n')[0]
+    artists[musicList] = artists[musicList].text.strip().split('\n')[0]
+    data = '[{0:3d}] {1} - {2}'.format(musicList+1, ranks[musicList], artists[musicList])
+    fileSave.write(data + '\n')
+fileSave.close()
+
+fileRead = open('busgMusicTop100.txt', 'r', encoding="utf-8")
+for musicList in range(len(ranks)):
+    print(fileRead.readline(), end='')
+fileRead.close()
